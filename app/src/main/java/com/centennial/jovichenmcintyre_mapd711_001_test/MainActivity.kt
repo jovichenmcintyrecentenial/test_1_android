@@ -104,7 +104,7 @@ class MainActivity : AppCompatActivity() {
                 userData.age = age.text.toString().toInt()
                 userData.weight = weight.text.toString().toDouble()
                 userData.height = height.text.toString().toDouble()
-
+                userData.activityLevel = activityLevel
                 when(activityLevel){
                     resources.getStringArray(R.array.string_exercise_frequency)[0]->userData.exciseFrequency = 1.2
                     resources.getStringArray(R.array.string_exercise_frequency)[1]->userData.exciseFrequency = 1.375

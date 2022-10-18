@@ -7,5 +7,6 @@ class UserData {
     var weight:Double? = null
     var height:Double? = null
     var exciseFrequency:Double? = null
+    var activityLevel:String? = null
     var shouldLoadImage:Boolean = false
 }
