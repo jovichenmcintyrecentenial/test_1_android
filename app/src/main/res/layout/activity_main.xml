@@ -10,8 +10,10 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="Human Metabolism Calculator"
+        android:textStyle="bold"
         android:textColor="@color/purple_500"
+        android:autoSizeMinTextSize="17sp"
         android:textAlignment="center"
         />
     <LinearLayout
@@ -118,11 +120,42 @@
 
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-    <Spinner
-        android:id="@+id/spinner"
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Activity Level:"
+            android:textAlignment="center"
+            />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Load an Image" />
+
+    <Button
+        android:id="@+id/button"
+        android:gravity="center"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-       />
+        android:text="FIND YOUR NEEDED CALORIES" />
+
 
 </LinearLayout>
