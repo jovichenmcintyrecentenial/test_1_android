@@ -1,5 +1,6 @@
 package com.centennial.jovichenmcintyre_mapd711_001_test
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -111,6 +112,14 @@ class MainActivity : AppCompatActivity() {
                     resources.getStringArray(R.array.string_exercise_frequency)[3]->userData.exciseFrequency = 1.725
                 }
                 userData.shouldLoadImage = loadImage
+
+
+                val sharedPref = this.getSharedPreferences(
+                    resources.getString(R.string.app_name), Context.MODE_PRIVATE)
+                val editor=sharedPref.edit()
+                editor.putString("user_data",Gson().toJson(userData))
+                editor.commit()
+
 
                 val newIntent = Intent(this,OutputActivity::class.java)
                 startActivity(newIntent)
