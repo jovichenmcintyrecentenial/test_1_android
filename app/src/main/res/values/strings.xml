@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">JoviChenMcintyre_MAPD711-001_Test</string>
+    <string-array name="string_exercise_frequency">
+        <item>Few OR No exercise</item>
+        <item>Light exercise 1–3 days per week</item>
+        <item>Medium exercise 4–5 days per week</item>
+        <item>Vigorous exercise 6–7 days per week</item>
+    </string-array>
 </resources>
