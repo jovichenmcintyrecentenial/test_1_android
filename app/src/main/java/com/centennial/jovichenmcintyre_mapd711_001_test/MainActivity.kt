@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import com.centennial.jovichenmcintyre_mapd711_001_assignment2.exceptions.UserInputException
+import com.centennial.jovichenmcintyre_mapd711_001_test.models.UserData
 import com.google.gson.Gson
 
 class MainActivity : AppCompatActivity() {
@@ -16,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var  height: EditText
     private lateinit var  spinner: Spinner
 
-    private lateinit var gender:String;
+    private var gender:String = "male"
     private lateinit var activityLevel:String
     private lateinit var loadImageCheckbox:CheckBox
     private var loadImage:Boolean = false
@@ -41,7 +42,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        activityLevel = resources.getStringArray(R.array.string_exercise_frequency)[0]
         name = findViewById(R.id.name)
         age = findViewById(R.id.age)
         weight = findViewById(R.id.weight)
@@ -95,6 +96,21 @@ class MainActivity : AppCompatActivity() {
                 if (loadImageCheckbox.isChecked) {
                     loadImage = true
                 }
+
+                var userData = UserData()
+                userData.name = name.text.toString()
+                userData.gender = gender
+                userData.age = age.text.toString().toInt()
+                userData.weight = weight.text.toString().toDouble()
+                userData.height = height.text.toString().toDouble()
+
+                when(activityLevel){
+                    resources.getStringArray(R.array.string_exercise_frequency)[0]->userData.exciseFrequency = 1.2
+                    resources.getStringArray(R.array.string_exercise_frequency)[1]->userData.exciseFrequency = 1.375
+                    resources.getStringArray(R.array.string_exercise_frequency)[2]->userData.exciseFrequency = 1.55
+                    resources.getStringArray(R.array.string_exercise_frequency)[3]->userData.exciseFrequency = 1.725
+                }
+                userData.shouldLoadImage = loadImage
 
                 val newIntent = Intent(this,OutputActivity::class.java)
                 startActivity(newIntent)
