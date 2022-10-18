@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JoviChenMcintyre_MAPD711001_Test">
         <activity
+            android:name=".OutputActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
