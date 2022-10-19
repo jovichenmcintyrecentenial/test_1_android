@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="@dimen/page_margins"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <TextView
+        android:layout_marginTop="@dimen/page_margins"
         android:text="Human Metabolism Calculator"
         android:textAlignment="center"
         style="@style/main_text" />
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+    <LinearLayout style="@style/layout_edit_text">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,10 +28,8 @@
 
         <EditText
             android:id="@+id/name"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
             android:inputType="textPersonName"
             android:text="" />
 
@@ -54,9 +57,8 @@
             android:onClick="onSelectRadioButton"
             android:text="Female" />
     </RadioGroup>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+    <LinearLayout style="@style/layout_edit_text">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -66,7 +68,7 @@
 
         <EditText
             android:id="@+id/age"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
@@ -74,9 +76,8 @@
             android:text="" />
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+    <LinearLayout style="@style/layout_edit_text">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -86,7 +87,7 @@
 
         <EditText
             android:id="@+id/weight"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
@@ -94,9 +95,8 @@
             android:text="" />
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+    <LinearLayout style="@style/layout_edit_text">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
 
         <EditText
             android:id="@+id/height"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
@@ -115,9 +115,7 @@
 
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+    <LinearLayout style="@style/layout_edit_text">
 
 
 
@@ -129,9 +127,11 @@
             />
 
         <Spinner
+            android:layout_marginTop="@dimen/page_margins"
             android:id="@+id/spinner"
+            android:background="@drawable/spiner_ui"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             />
 
 
@@ -155,3 +155,4 @@
 
 
 </LinearLayout>
+</ScrollView>
