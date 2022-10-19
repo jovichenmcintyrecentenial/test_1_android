@@ -94,9 +94,7 @@ class MainActivity : AppCompatActivity() {
         try{
             if(isDataValid()){
 
-                if (loadImageCheckbox.isChecked) {
-                    loadImage = true
-                }
+                loadImage = loadImageCheckbox.isChecked
 
                 var userData = UserData()
                 userData.name = name.text.toString()
