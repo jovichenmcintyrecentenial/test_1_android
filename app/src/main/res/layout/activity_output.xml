@@ -25,10 +25,22 @@
         style="@style/main_text"
         android:text="Results:"
         />
-
+    <TextView
+        android:id="@+id/bmr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" BMR: "
+        />
+    <TextView
+        android:id="@+id/daily_intake"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" Daily needs based on activity level: "
+        />
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
+        android:visibility="gone"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/bmr" />
 
