@@ -1,5 +1,11 @@
 <resources>
-    <string name="app_name">JoviChenMcintyre_MAPD711-001_Test</string>
+    <string name="app_name">MAPD711-001_Test</string>
+    <string name="hello">Hello </string>
+    <string name="calories_day"> Calories/day </string>
+    <string name="calories"> Calories </string>
+    <string name="age">  Age: </string>
+    <string name="male">male</string>
+    <string name="female">female</string>
     <string-array name="string_exercise_frequency">
         <item>Few OR No exercise</item>
         <item>Light exercise 1–3 days per week</item>

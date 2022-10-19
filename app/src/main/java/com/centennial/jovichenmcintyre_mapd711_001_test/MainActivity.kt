@@ -12,6 +12,7 @@ import com.google.gson.Gson
 
 class MainActivity : AppCompatActivity() {
 
+    //declare feilds
     private lateinit var name: EditText
     private lateinit var  age: EditText
     private lateinit var  weight: EditText
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     private var loadImage:Boolean = false
 
 
+    //valid data
     private fun isDataValid(): Boolean {
         if(name.text.trim().isEmpty()){
             throw UserInputException("Please fill out the name field")
@@ -43,7 +45,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        //set default value
         activityLevel = resources.getStringArray(R.array.string_exercise_frequency)[0]
+        //find views
         name = findViewById(R.id.name)
         age = findViewById(R.id.age)
         weight = findViewById(R.id.weight)
@@ -52,7 +56,7 @@ class MainActivity : AppCompatActivity() {
         loadImageCheckbox = findViewById(R.id.checkBox)
 
 
-
+        //set array for spinner
         ArrayAdapter.createFromResource(
             this,
             R.array.string_exercise_frequency,
@@ -62,6 +66,7 @@ class MainActivity : AppCompatActivity() {
             spinner.adapter = adapter
         }
 
+        //click listner
         spinner.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -79,8 +84,8 @@ class MainActivity : AppCompatActivity() {
 
         if(view is RadioButton){
             when(view.id){
-                R.id.male ->gender = "male"
-                R.id.female -> gender = "female"
+                R.id.male ->gender = getString(R.string.male)
+                R.id.female -> gender = getString(R.string.female)
             }
         }
 
@@ -96,6 +101,7 @@ class MainActivity : AppCompatActivity() {
 
                 loadImage = loadImageCheckbox.isChecked
 
+                //save data in user data class
                 var userData = UserData()
                 userData.name = name.text.toString()
                 userData.gender = gender
@@ -103,15 +109,20 @@ class MainActivity : AppCompatActivity() {
                 userData.weight = weight.text.toString().toDouble()
                 userData.height = height.text.toString().toDouble()
                 userData.activityLevel = activityLevel
+
+                //set double value for activity level
                 when(activityLevel){
                     resources.getStringArray(R.array.string_exercise_frequency)[0]->userData.exciseFrequency = 1.2
                     resources.getStringArray(R.array.string_exercise_frequency)[1]->userData.exciseFrequency = 1.375
                     resources.getStringArray(R.array.string_exercise_frequency)[2]->userData.exciseFrequency = 1.55
                     resources.getStringArray(R.array.string_exercise_frequency)[3]->userData.exciseFrequency = 1.725
                 }
+
+                //set if image should be loaded on object
                 userData.shouldLoadImage = loadImage
 
 
+                //get share prefecnce and save serilized object in it
                 val sharedPref = this.getSharedPreferences(
                     resources.getString(R.string.app_name), Context.MODE_PRIVATE)
                 val editor=sharedPref.edit()
@@ -119,6 +130,7 @@ class MainActivity : AppCompatActivity() {
                 editor.commit()
 
 
+                //create new Intent
                 val newIntent = Intent(this,OutputActivity::class.java)
                 startActivity(newIntent)
 

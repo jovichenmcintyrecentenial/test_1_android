@@ -16,27 +16,34 @@ class OutputActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_output)
 
+        //get views
         var nameTextView = findViewById<TextView>(R.id.nameTextView)
         var brmTextView = findViewById<TextView>(R.id.bmr)
         var dailyIntake = findViewById<TextView>(R.id.daily_intake)
         var givenInputs = findViewById<TextView>(R.id.given_inputs)
         var imageView = findViewById<ImageView>(R.id.imageView)
 
+
+        //get shared preference and load data store in it
         val sharedPref = this.getSharedPreferences(
             resources.getString(R.string.app_name), Context.MODE_PRIVATE)
         val userDataJson= sharedPref.getString("user_data",null)
         if(userDataJson != null){
-            var userData = Gson().fromJson(userDataJson, UserData::class.java)
-            nameTextView.text = "Hello "+userData.name.toString()+"!"
 
+            //deserialize object from stirng
+            var userData = Gson().fromJson(userDataJson, UserData::class.java)
+            nameTextView.text = getString(R.string.hello)+" "+userData.name.toString()+"!"
+
+            //create string with input date
             var tempStr = ""
-            tempStr += "  Age: "+userData.age
+            tempStr += " Age: "+userData.age
             tempStr += "\n  Weight: "+userData.weight
             tempStr += "\n  Height: "+userData.height
             tempStr += "\n  Activity Level: "+userData.activityLevel
 
             givenInputs.text = tempStr
 
+            //show or hide image
             if(userData.shouldLoadImage){
                 imageView.visibility = View.VISIBLE
             }
@@ -54,8 +61,10 @@ class OutputActivity : AppCompatActivity() {
             }
             var intakeInCalories = bmr * userData.exciseFrequency!!
 
-            brmTextView.text = brmTextView.text.toString() + bmr.toString() + " Calories/day "
-            dailyIntake.text = dailyIntake.text.toString() + intakeInCalories.toString() + " Calories "
+            //display calculated information
+            brmTextView.text = brmTextView.text.toString() + bmr.toString() +" "+ getString(R.string.calories_day)
+            dailyIntake.text = dailyIntake.text.toString() + intakeInCalories.toString() + " "+getString(
+                            R.string.calories)
 
         }
     }
