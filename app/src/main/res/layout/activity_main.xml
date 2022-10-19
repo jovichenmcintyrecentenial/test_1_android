@@ -15,14 +15,14 @@
 
     <TextView
         android:layout_marginTop="@dimen/page_margins"
-        android:text="Human Metabolism Calculator"
+        android:text="@string/human_metabolism_calculator"
         android:textAlignment="center"
         style="@style/main_text" />
     <LinearLayout style="@style/layout_edit_text">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your Name:"
+        android:text="@string/your_name"
         android:textAlignment="center"
         />
 
@@ -62,7 +62,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Your Age:"
+            android:text="@string/your_age"
             android:textAlignment="center"
             />
 
@@ -81,7 +81,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Your Weight (Kg):"
+            android:text="@string/your_weight_kg"
             android:textAlignment="center"
             />
 
@@ -100,7 +100,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Your Height (cm):"
+            android:text="@string/your_height_cm"
             android:textAlignment="center"
             />
 
@@ -122,7 +122,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Activity Level:"
+            android:text="@string/activity_level"
             android:textAlignment="center"
             />
 
@@ -141,7 +141,7 @@
         android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Load an Image" />
+        android:text="@string/load_an_image" />
 
     <Button
         android:id="@+id/button"
@@ -151,7 +151,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onSubmit"
-        android:text="FIND YOUR NEEDED CALORIES" />
+        android:text="@string/find_your_needed_calories" />
 
 
 </LinearLayout>
